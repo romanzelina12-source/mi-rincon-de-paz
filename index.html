@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f4efdf">
+<meta name="description" content="Un pequeño rincón de calma, naturaleza y bienestar.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>Mi Rincón de Paz</title>
+<style>
+:root{--cream:#f7f2e7;--paper:#fffdf7;--olive:#647653;--olive2:#43543c;--clay:#b87554;--ink:#37392f;--muted:#777568;--line:#e7dfcf;--gold:#e8c879}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:ui-rounded,"Segoe UI",system-ui,-apple-system,sans-serif;line-height:1.5}
+button,input,textarea{font:inherit}button{cursor:pointer}.app{max-width:1050px;margin:auto;padding:18px 16px 36px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 2px 18px}.brand{display:flex;align-items:center;gap:10px}.sunmark{width:42px;height:42px;border-radius:50%;background:var(--gold);display:grid;place-items:center;font-size:24px;box-shadow:0 0 0 7px #e8c87933}.brand h1{font-size:clamp(1.05rem,3vw,1.4rem);margin:0;color:var(--olive2)}.brand p{margin:0;font-size:.78rem;color:var(--muted)}.lang{border:1px solid var(--line);background:var(--paper);color:var(--olive2);padding:9px 12px;border-radius:99px}
+.hero{position:relative;overflow:hidden;border-radius:28px;min-height:290px;padding:clamp(24px,5vw,48px);display:flex;align-items:center;background:linear-gradient(110deg,#f5e8c7ee,#f5e8c766),linear-gradient(180deg,#9dc3c0 0%,#dbe3c8 45%,#d4b17d 100%);isolation:isolate}
+.hero:before{content:"";position:absolute;width:170px;height:170px;border-radius:50%;background:#f5d57b;right:12%;top:22px;box-shadow:0 0 0 18px #f5d57b22,0 0 0 38px #f5d57b16;z-index:-1}
+.hill{position:absolute;left:-5%;right:-5%;height:42%;bottom:-8%;border-radius:50% 50% 0 0/40% 40% 0 0;background:#a8b78a;z-index:-1;transform:rotate(-3deg)}.hill.two{height:31%;bottom:-12%;background:#748b61;left:28%;transform:rotate(5deg)}.hero-content{max-width:510px;position:relative}.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:.75rem;font-weight:700;color:#58684c}.hero h2{font-family:Georgia,serif;font-weight:500;font-size:clamp(2rem,6vw,3.35rem);line-height:1.05;margin:10px 0 12px;color:#394a35}.hero p{max-width:420px;margin:0 0 20px;color:#4b5542}.primary{border:0;border-radius:99px;background:var(--olive2);color:white;padding:12px 18px;font-weight:650;box-shadow:0 5px 14px #43543c22}.primary:hover{filter:brightness(1.08)}.secondary{border:1px solid var(--line);border-radius:99px;background:var(--paper);color:var(--olive2);padding:10px 14px;font-weight:600}
+.section-title{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:28px 2px 13px}.section-title h3{margin:0;font-family:Georgia,serif;font-size:1.45rem;font-weight:500}.section-title p{margin:2px 0 0;color:var(--muted);font-size:.9rem}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 5px 18px #5d51350a}.feature{min-height:164px;display:flex;flex-direction:column;align-items:flex-start}.emoji{font-size:1.65rem;margin-bottom:10px}.card h4{margin:0 0 5px;font-size:1.02rem}.card p{margin:0;color:var(--muted);font-size:.9rem}.card button{margin-top:auto;padding-top:14px;border:0;background:none;color:var(--olive2);font-weight:700;text-align:left}
+.quote{background:#e7ebdc;border:1px solid #d8dfc9;border-radius:22px;padding:22px;margin-top:14px}.quote .small{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--olive)}.quote blockquote{font-family:Georgia,serif;font-size:clamp(1.2rem,3vw,1.7rem);line-height:1.35;margin:10px 0;color:#3e5037}.translation{color:#65705a;margin:0}.quote-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:15px;flex-wrap:wrap}
+.panel{display:none;margin-top:18px;animation:fade .25s ease}.panel.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.panel-inner{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:clamp(18px,4vw,30px)}.panel h3{font-family:Georgia,serif;font-size:1.7rem;font-weight:500;margin:0 0 6px}.muted{color:var(--muted)}.breath-wrap{text-align:center;padding:20px 0}.breath-circle{width:150px;height:150px;border-radius:50%;margin:12px auto 22px;background:radial-gradient(circle at 35% 30%,#f8e7a8,#d7c57c 68%,#b7c39a);display:grid;place-items:center;color:#40513a;font-weight:700;box-shadow:0 0 0 14px #e8e3d2;transition:transform 4s ease-in-out}.breath-circle.grow{transform:scale(1.22)}.breath-circle.shrink{transform:scale(.86)}.breath-controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.mood-list{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0}.mood{border:1px solid var(--line);background:#fffdf7;border-radius:99px;padding:10px 13px}.mood.selected{background:#e5ebdc;border-color:#9cad8c}.field{display:block;width:100%;border:1px solid var(--line);border-radius:13px;background:#fffefb;padding:12px;color:var(--ink);margin:8px 0 12px}.entry{border-top:1px solid var(--line);padding:14px 0}.entry:first-child{border-top:0}.entry time{font-size:.78rem;color:var(--muted)}.entry p{white-space:pre-wrap;margin:6px 0}.delete{border:0;background:none;color:#95654f;font-size:.85rem;padding:4px 0}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.nature-tile{min-height:170px;border-radius:18px;padding:16px;display:flex;align-items:end;color:#344331;font-weight:700;background:linear-gradient(160deg,#d9e5cf,#f3dca7 48%,#8da17b);position:relative;overflow:hidden}.nature-tile:nth-child(2){background:linear-gradient(160deg,#c9e0df,#f4d7a3 53%,#9cae83)}.nature-tile:nth-child(3){background:linear-gradient(160deg,#e9d6a9,#d8b184 52%,#72875e)}.nature-tile:nth-child(4){background:linear-gradient(160deg,#d9e7d7,#b6c9a0 55%,#f3dfb0)}.nature-tile:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;background:#f8db83;right:-15px;top:-20px;opacity:.85}.nature-tile span{position:relative;background:#fffdf7cc;padding:7px 10px;border-radius:12px}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:25px 10px 0} .privacy{font-size:.88rem;background:#f1eadb;padding:12px 14px;border-radius:14px;margin-top:14px}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#344331;color:white;padding:10px 16px;border-radius:99px;display:none;z-index:10;box-shadow:0 8px 20px #0002}
+@media(max-width:680px){.grid{grid-template-columns:1fr}.feature{min-height:unset}.feature button{padding-top:10px}.hero{min-height:330px}.hero:before{right:-5%;top:22px}.gallery{grid-template-columns:1fr 1fr}.section-title{align-items:start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+ <div class="brand"><div class="sunmark" aria-hidden="true">☀</div><div><h1>Mi Rincón de Paz</h1><p>Un pequeño lugar para respirar</p></div></div>
+ <button class="lang" id="langToggle" aria-label="Cambiar idioma">ES / SK</button>
+</header>
+<main>
+<section class="hero">
+ <div class="hill"></div><div class="hill two"></div>
+ <div class="hero-content"><div class="eyebrow" data-es="TU MOMENTO, A TU RITMO" data-sk="TVOJA CHVÍĽA, TVOJÍM TEMPOM">TU MOMENTO, A TU RITMO</div>
+ <h2 data-es="Hoy puedes ir despacio." data-sk="Dnes môžeš ísť pomaly.">Hoy puedes ir despacio.</h2>
+ <p data-es="Respira. Mira el cielo. No tienes que resolverlo todo hoy." data-sk="Nadýchni sa. Pozri sa na oblohu. Dnes nemusíš vyriešiť všetko.">Respira. Mira el cielo. No tienes que resolverlo todo hoy.</p>
+ <button class="primary" onclick="showPanel('calma')" data-es="Encontrar un momento de calma" data-sk="Nájsť chvíľu pokoja">Encontrar un momento de calma</button></div>
+</section>
+
+<section class="section-title"><div><h3 data-es="Un pequeño descanso" data-sk="Malý oddych">Un pequeño descanso</h3><p data-es="Elige lo que te apetezca ahora." data-sk="Vyber si, na čo máš práve chuť.">Elige lo que te apetezca ahora.</p></div></section>
+<div class="grid">
+ <article class="card feature"><div class="emoji">🌬️</div><h4 data-es="Respirar" data-sk="Dýchanie">Respirar</h4><p data-es="Unos minutos para soltar tensión." data-sk="Pár minút na uvoľnenie napätia.">Unos minutos para soltar tensión.</p><button onclick="showPanel('calma')" data-es="Empezar →" data-sk="Začať →">Empezar →</button></article>
+ <article class="card feature"><div class="emoji">🌿</div><h4 data-es="Naturaleza" data-sk="Príroda">Naturaleza</h4><p data-es="Paisajes tranquilos para descansar la mirada." data-sk="Pokojné scenérie na oddych pre oči.">Paisajes tranquilos para descansar la mirada.</p><button onclick="showPanel('naturaleza')" data-es="Pasear un poco →" data-sk="Trochu sa poprechádzať →">Pasear un poco →</button></article>
+ <article class="card feature"><div class="emoji">📔</div><h4 data-es="Mi diario" data-sk="Môj denník">Mi diario</h4><p data-es="Un espacio privado, solo para ti." data-sk="Súkromný priestor iba pre teba.">Un espacio privado, solo para ti.</p><button onclick="showPanel('diario')" data-es="Escribir →" data-sk="Napísať →">Escribir →</button></article>
+</div>
+
+<section class="quote" aria-live="polite"><div class="small" data-es="Una idea amable para hoy" data-sk="Milá myšlienka na dnes">Una idea amable para hoy</div>
+<blockquote id="quoteText">No tienes que ser fuerte a cada momento. También mereces descansar.</blockquote>
+<p class="translation" id="quoteTranslation">Nemusíš byť silná v každom okamihu. Aj ty si zaslúžiš oddych.</p>
+<div class="quote-bottom"><span class="muted" id="quoteCount">☀ Una pausa sin prisa</span><button class="secondary" id="newQuote" data-es="Otra idea bonita" data-sk="Ďalšia pekná myšlienka">Otra idea bonita</button></div></section>
+
+<section class="panel" id="panel-calma"><div class="panel-inner"><h3 data-es="Un momento de calma" data-sk="Chvíľa pokoja">Un momento de calma</h3><p class="muted" data-es="Sigue tu respiración sin forzarla. Puedes parar cuando quieras." data-sk="Sleduj svoj dych bez nútenia. Kedykoľvek môžeš prestať.">Sigue tu respiración sin forzarla. Puedes parar cuando quieras.</p>
+<div class="breath-wrap"><div class="breath-circle" id="breathCircle"><span id="breathWord">Lista</span></div><div id="breathInstruction" aria-live="polite" data-es="Cuando quieras, empieza suavemente." data-sk="Keď budeš chcieť, začni pomaly.">Cuando quieras, empieza suavemente.</div><p id="breathTimer" class="muted">01:00</p>
+<div class="breath-controls"><button class="primary" id="startBreath" data-es="Empezar" data-sk="Začať">Empezar</button><button class="secondary" id="stopBreath" data-es="Terminar" data-sk="Ukončiť">Terminar</button></div></div></div></section>
+
+<section class="panel" id="panel-naturaleza"><div class="panel-inner"><h3 data-es="Naturaleza que abraza" data-sk="Príroda, ktorá objíma">Naturaleza que abraza</h3><p class="muted" data-es="Imagina el aire tibio, el canto de los pájaros y el sol sobre las colinas." data-sk="Predstav si teplý vzduch, spev vtákov a slnko nad kopcami.">Imagina el aire tibio, el canto de los pájaros y el sol sobre las colinas.</p>
+<div class="gallery"><div class="nature-tile"><span data-es="Colinas tranquilas" data-sk="Pokojné kopce">Colinas tranquilas</span></div><div class="nature-tile"><span data-es="Luz de la mañana" data-sk="Ranné svetlo">Luz de la mañana</span></div><div class="nature-tile"><span data-es="Tierra y olivos" data-sk="Zem a olivovníky">Tierra y olivos</span></div><div class="nature-tile"><span data-es="Un jardín en calma" data-sk="Pokojná záhrada">Un jardín en calma</span></div></div>
+<p class="privacy" data-es="Pequeña idea: deja el teléfono un momento, mira por la ventana y encuentra tres cosas bonitas a tu alrededor." data-sk="Malý nápad: na chvíľu odlož telefón, pozri sa z okna a nájdi okolo seba tri pekné veci.">Pequeña idea: deja el teléfono un momento, mira por la ventana y encuentra tres cosas bonitas a tu alrededor.</p></div></section>
+
+<section class="panel" id="panel-diario"><div class="panel-inner"><h3 data-es="Mi diario privado" data-sk="Môj súkromný denník">Mi diario privado</h3><p class="muted" data-es="No hace falta escribir mucho. Una palabra también vale." data-sk="Nemusíš písať veľa. Stačí aj jedno slovo.">No hace falta escribir mucho. Una palabra también vale.</p>
+<label for="mood" data-es="¿Cómo te sientes ahora?" data-sk="Ako sa teraz cítiš?">¿Cómo te sientes ahora?</label>
+<div class="mood-list" id="moodList"><button class="mood" data-mood-es="En calma" data-mood-sk="Pokojne">😌 En calma</button><button class="mood" data-mood-es="Cansada" data-mood-sk="Unavene">🌙 Cansada</button><button class="mood" data-mood-es="Triste" data-mood-sk="Smutne">🌧️ Triste</button><button class="mood" data-mood-es="Contenta" data-mood-sk="Šťastne">🌼 Contenta</button><button class="mood" data-mood-es="Necesito silencio" data-mood-sk="Potrebujem ticho">🍃 Necesito silencio</button></div>
+<label for="journalText" data-es="Unas palabras para ti" data-sk="Pár slov pre seba">Unas palabras para ti</label><textarea class="field" id="journalText" rows="4" maxlength="3000" placeholder="Hoy me gustaría... / Dnes by som chcela..."></textarea>
+<div style="display:flex;gap:10px;flex-wrap:wrap"><button class="primary" id="saveEntry" data-es="Guardar en este dispositivo" data-sk="Uložiť v tomto zariadení">Guardar en este dispositivo</button><button class="secondary" id="clearDraft" data-es="Borrar texto" data-sk="Vymazať text">Borrar texto</button></div>
+<div class="privacy" data-es="Privacidad: las notas se guardan solo en el almacenamiento local de este navegador. No se envían a nadie. Si borras los datos del navegador, podrías perderlas." data-sk="Súkromie: poznámky sa ukladajú iba do miestneho úložiska tohto prehliadača. Nikomu sa neodosielajú. Pri vymazaní údajov prehliadača sa môžu stratiť.">Privacidad: las notas se guardan solo en el almacenamiento local de este navegador. No se envían a nadie. Si borras los datos del navegador, podrías perderlas.</div>
+<h4 data-es="Mis notas guardadas" data-sk="Moje uložené poznámky">Mis notas guardadas</h4><div id="entries"></div></div></section>
+</main>
+<footer><div data-es="Este espacio es tuyo. Puedes entrar, salir y descansar a tu manera." data-sk="Tento priestor je tvoj. Môžeš prísť, odísť a oddychovať po svojom.">Este espacio es tuyo. Puedes entrar, salir y descansar a tu manera.</div><div style="margin-top:6px">Mi Rincón de Paz ☀</div></footer>
+</div><div class="toast" id="toast" role="status"></div>
+<script>
+const quotes=[
+["No tienes que ser fuerte a cada momento. También mereces descansar.","Nemusíš byť silná v každom okamihu. Aj ty si zaslúžiš oddych."],
+["Un paso pequeño también es avanzar.","Aj malý krok je posun vpred."],
+["Hoy puedes elegir la calma, aunque sea por un minuto.","Dnes si môžeš vybrať pokoj, hoci len na jednu minútu."],
+["No todo necesita una respuesta ahora mismo.","Nie všetko potrebuje odpoveď práve teraz."],
+["Mereces hablarte con la misma ternura que ofreces a los demás.","Zaslúžiš si hovoriť sama so sebou rovnako nežne, ako hovoríš s ostatnými."],
+["Después de un día difícil, también puede llegar uno tranquilo.","Po ťažkom dni môže prísť aj pokojný deň."],
+["Respira despacio. Este momento es suficiente.","Dýchaj pomaly. Táto chvíľa stačí."],
+["La naturaleza no tiene prisa, y aun así todo florece.","Príroda sa nikam neponáhľa, a predsa všetko kvitne."]
+];
+let quoteIndex=0, lang='es', selectedMood='';
+const $=id=>document.getElementById(id);
+function showPanel(name){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));$('panel-'+name).classList.add('active');$('panel-'+name).scrollIntoView({behavior:'smooth',block:'start'});}
+function showToast(message){const t=$('toast');t.textContent=message;t.style.display='block';setTimeout(()=>t.style.display='none',2200)}
+function setLang(next){lang=next;document.documentElement.lang=lang;document.querySelectorAll('[data-es][data-sk]').forEach(el=>{if(el.dataset.keepValue)return;el.textContent=el.dataset[lang]});$('langToggle').textContent=lang==='es'?'ES / SK':'SK / ES';$('journalText').placeholder=lang==='es'?'Hoy me gustaría...':'Dnes by som chcela...';document.querySelectorAll('.mood').forEach(b=>{const emoji=b.textContent.split(' ')[0];b.textContent=emoji+' '+b.dataset['mood'+(lang==='es'?'Es':'Sk')];b.classList.toggle('selected',selectedMood===b.dataset['mood'+(lang==='es'?'Es':'Sk')])});renderEntries();renderQuote();}
+$('langToggle').addEventListener('click',()=>setLang(lang==='es'?'sk':'es'));
+function renderQuote(){ $('quoteText').textContent=quotes[quoteIndex][0];$('quoteTranslation').textContent=quotes[quoteIndex][1];if(lang==='sk'){$('quoteText').textContent=quotes[quoteIndex][1];$('quoteTranslation').textContent=quotes[quoteIndex][0];$('quoteCount').textContent='☀ Pokojná chvíľka'}else $('quoteCount').textContent='☀ Una pausa sin prisa';}
+$('newQuote').addEventListener('click',()=>{quoteIndex=(quoteIndex+1)%quotes.length;renderQuote()});
+let breathInterval=null,breathRemaining=60,phase=0,phaseTimer=null;
+function resetBreath(){clearInterval(breathInterval);clearTimeout(phaseTimer);breathInterval=null;breathRemaining=60;phase=0;$('breathCircle').className='breath-circle';$('breathWord').textContent=lang==='es'?'Lista':'Pripravená';$('breathInstruction').textContent=lang==='es'?'Cuando quieras, empieza suavemente.':'Keď budeš chcieť, začni pomaly.';$('breathTimer').textContent='01:00';$('startBreath').disabled=false;}
+function breathePhase(){const circle=$('breathCircle');if(phase%2===0){$('breathWord').textContent=lang==='es'?'Inspira':'Nadýchni sa';$('breathInstruction').textContent=lang==='es'?'Inspira suavemente':'Jemne sa nadýchni';circle.className='breath-circle grow';}else{$('breathWord').textContent=lang==='es'?'Espira':'Vydýchni';$('breathInstruction').textContent=lang==='es'?'Suelta el aire despacio':'Pomaly vydýchni';circle.className='breath-circle shrink';}phase++;phaseTimer=setTimeout(()=>{if(breathInterval)breathePhase()},4000);}
+$('startBreath').addEventListener('click',()=>{if(breathInterval)return;breathRemaining=60;$('startBreath').disabled=true;breathePhase();breathInterval=setInterval(()=>{breathRemaining--;const m=String(Math.floor(breathRemaining/60)).padStart(2,'0'),s=String(breathRemaining%60).padStart(2,'0');$('breathTimer').textContent=m+':'+s;if(breathRemaining<=0){clearInterval(breathInterval);breathInterval=null;clearTimeout(phaseTimer);$('breathCircle').className='breath-circle';$('breathWord').textContent=lang==='es'?'Muy bien':'Výborne';$('breathInstruction').textContent=lang==='es'?'Quédate un instante en calma.':'Zostaň ešte chvíľu v pokoji.';$('startBreath').disabled=false;showToast(lang==='es'?'Gracias por regalarte este momento.':'Ďakujem, že si si dopriala túto chvíľu.')}},1000)});
+$('stopBreath').addEventListener('click',()=>{resetBreath();showToast(lang==='es'?'Puedes volver cuando quieras.':'Môžeš sa vrátiť, kedykoľvek budeš chcieť.')});
+$('moodList').addEventListener('click',e=>{const b=e.target.closest('.mood');if(!b)return;selectedMood=b.dataset['mood'+(lang==='es'?'Es':'Sk')];document.querySelectorAll('.mood').forEach(x=>x.classList.toggle('selected',x===b))});
+function getEntries(){try{return JSON.parse(localStorage.getItem('mrp_entries')||'[]')}catch(e){return []}}
+function renderEntries(){const root=$('entries'),entries=getEntries();root.innerHTML='';if(!entries.length){const p=document.createElement('p');p.className='muted';p.textContent=lang==='es'?'Todavía no hay notas guardadas.':'Zatiaľ tu nie sú uložené žiadne poznámky.';root.appendChild(p);return;}entries.slice().reverse().forEach(entry=>{const wrap=document.createElement('div');wrap.className='entry';const time=document.createElement('time');time.textContent=new Date(entry.date).toLocaleString(lang==='es'?'es-ES':'sk-SK');const mood=document.createElement('strong');mood.textContent=' · '+(lang==='es'?entry.moodEs:entry.moodSk);const p=document.createElement('p');p.textContent=entry.text;const del=document.createElement('button');del.className='delete';del.textContent=lang==='es'?'Eliminar esta nota':'Odstrániť túto poznámku';del.addEventListener('click',()=>{const all=getEntries().filter(x=>x.id!==entry.id);localStorage.setItem('mrp_entries',JSON.stringify(all));renderEntries()});wrap.append(time,mood,p,del);root.appendChild(wrap)})}
+$('saveEntry').addEventListener('click',()=>{const text=$('journalText').value.trim();if(!text&&!selectedMood){showToast(lang==='es'?'Elige un sentimiento o escribe unas palabras.':'Vyber pocit alebo napíš pár slov.');return;}const moodButton=document.querySelector('.mood.selected');const moodEs=moodButton?moodButton.dataset.moodEs:'Sin etiqueta';const moodSk=moodButton?moodButton.dataset.moodSk:'Bez označenia';const all=getEntries();all.push({id:Date.now().toString(),date:new Date().toISOString(),text:text||'—',moodEs,moodSk});try{localStorage.setItem('mrp_entries',JSON.stringify(all));$('journalText').value='';selectedMood='';document.querySelectorAll('.mood').forEach(b=>b.classList.remove('selected'));renderEntries();showToast(lang==='es'?'Nota guardada en este dispositivo.':'Poznámka uložená v tomto zariadení.')}catch(e){showToast(lang==='es'?'No se pudo guardar. Comprueba el almacenamiento.':'Nepodarilo sa uložiť poznámku. Skontroluj úložisko.')}});
+$('clearDraft').addEventListener('click',()=>{$('journalText').value='';selectedMood='';document.querySelectorAll('.mood').forEach(b=>b.classList.remove('selected'))});
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+renderQuote();renderEntries();
+</script>
+</body>
+</html>
